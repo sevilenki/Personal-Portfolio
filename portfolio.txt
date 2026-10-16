@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sevi | Personal Portfolio</title>
+
+    <style>
+        
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f6dce8;
+    color: #292333;
+    margin: 0;
+    line-height: 1.7;
+    transition: background 0.4s, color 0.4s;
+}
+
+nav {
+    background: linear-gradient(135deg, #f550b3, #c026d3);
+    padding: 16px 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(180, 40, 130, 0.2);
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 5px 9px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+button {
+    padding: 10px 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background: #ec4899;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(236, 72, 153, 0.2);
+}
+
+button:hover {
+    background: #be185d;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(236, 72, 153, 0.3);
+}
+
+nav button {
+    background: white;
+    color: #c02682;
+    margin-left: 8px;
+}
+
+section {
+    padding: 55px 30px;
+    max-width: 950px;
+    margin: auto;
+    scroll-margin-top: 85px;
+    animation: slideUp 0.7s ease-out;
+}
+
+h1, h2 {
+    color: #db2777;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: clamp(30px, 5vw, 46px);
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 28px;
+    border-left: 5px solid #ec4899;
+    padding-left: 14px;
+    margin-bottom: 25px;
+}
+
+h3 {
+    color: #be185d;
+}
+
+p {
+    margin: 10px 0;
+}
+
+a {
+    color: #db2777;
+    transition: 0.3s;
+}
+
+section a:hover {
+    color: #9333ea;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin: 18px 0;
+    border-radius: 18px;
+    border: 1px solid #f5d7e8;
+    box-shadow: 0 5px 18px rgba(120, 40, 90, 0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(190, 24, 93, 0.13);
+}
+
+.profile {
+    width: 155px;
+    height: 155px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    outline: 3px solid #f7409b;
+    box-shadow: 0 8px 25px rgba(190, 24, 93, 0.2);
+    margin-bottom: 15px;
+    transition: transform 0.4s;
+}
+
+.profile:hover {
+    transform: scale(1.30) rotate(3deg);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+    display: block;
+    margin-top: 15px;
+    border: 2px solid #e8b7d0;
+    border-radius: 12px;
+    padding: 4px;
+    transition: all 0.4s ease;
+}
+
+.card img:hover {
+    border-color: #c084fc;
+    box-shadow: 0 0 15px rgba(192, 132, 252, 0.4);
+    transform: scale(1.02);
+}
+
+.card img:hover {
+    transform: scale(1.05);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #e9b8d3;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    background: white;
+    color: #292333;
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #ec4899;
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+footer {
+    text-align: center;
+    padding: 25px 15px;
+    background: linear-gradient(135deg, #f550b3, #c026d3);
+    color: white;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+}
+
+body > button[onclick="goTop()"] {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99;
+    border-radius: 30px;
+    padding: 12px 18px;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.dark {
+    background: #17131f;
+    color: #eee7f5;
+}
+
+.dark nav {
+    background: linear-gradient(135deg, #831843, #581c87);
+}
+
+.dark nav a {
+    color: white;
+}
+
+.dark nav button {
+    background: #fce7f3;
+    color: #831843;
+}
+
+.dark h1, .dark h2 {
+    color: #f472b6;
+}
+
+.dark h3 {
+    color: #f9a8d4;
+}
+
+.dark .card {
+    background: #25202f;
+    color: #eee7f5;
+    border-color: #44334f;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+}
+
+.dark .card:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.dark input, .dark textarea {
+    background: #30283b;
+    color: white;
+    border-color: #66506f;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+    color: #c6b8d1;
+}
+
+.dark section a {
+    color: #f9a8d4;
+}
+
+.dark section a:hover {
+    color: #d8b4fe;
+}
+
+.dark footer {
+    background: linear-gradient(135deg, #831843, #581c87);
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 10px 5px;
+    }
+
+    nav a {
+        margin: 3px;
+        padding: 6px;
+        font-size: 13px;
+    }
+
+    nav button {
+        margin: 5px;
+    }
+
+    section {
+        padding: 35px 18px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .card {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .profile {
+        width: 125px;
+        height: 125px;
+    }
+
+    .card img {
+        height: 160px;
+    }
+
+    body > button[onclick="goTop()"] {
+        right: 12px;
+        bottom: 12px;
+        padding: 10px 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#goals">Goals</a>
+        <a href="#contact">Contact</a>
+        <button onclick="changeTheme()">Dark Mode</button>
+    </nav>
+
+    <section id="home">
+        <img class="profile" src="profile.jpg" alt="My Profile Picture">
+        <h1>Hi, I'm Adrian Sevillano!</h1>
+        <p><i>Stay neutral, stay observant and keep improving</i></p>
+        <p>Hello! I am a college student who enjoys learning new things, especially about technology and programming.</p>
+        <a href="#projects">View My Projects</a>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="card">
+            <p>I am a student who wants to improve my programming skills and learn new things.</p>
+            <p><b>Course:</b> ACT</p>
+            <p><b>School:</b> Datamex College of Saint Adeline</p>
+            <p><b>Hobbies:</b> Sketching, volleyball, and listening to music</p>
+            <p><b>Interests:</b> Game Development and niche music</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="card">
+            <p>Adaptive</p>
+            <p>Resourceful</p>
+            <p>Critical Thinking</p>
+            <p>Problem Solving</p>
+            <p>Teamwork and Collaboration</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+
+        <div class="card">
+            <h3>1. Personal Portfolio</h3>
+            <p>A website that introduces me and shows my skills.</p>
+            <p><b>Technologies:</b> HTML and CSS</p>
+            <img src="project1.jpg" alt="Personal Portfolio">
+        </div>
+
+        <div class="card">
+            <h3>2. Payroll Management System</h3>
+            <p>A system for managing employee information and calculating salaries.</p>
+            <p><b>Technologies:</b> VB.NET and MS Access</p>
+            <img src="project2.jpg" alt="Financial Management System">
+        </div>
+
+        <div class="card">
+            <h3>3. Financial Management System</h3>
+            <p>A system for recording income and expenses and keeping track of financial records and balances.</p>
+            <p><b>Technologies:</b> Microsoft Visual Basic</p>
+            <img src="project3.jpg" alt="PAYTECH Payroll System">
+        </div>
+    </section>
+
+    <section id="achievements">
+        <h2>My Achievements</h2>
+        <div class="card">
+            <p>Achieve With High Honor in Senior High.</p>
+            <p>Manage to be Rank 1 in ORACLE.</p>
+            <p>Worked with a school project with classmates.</p>
+        </div>
+    </section>
+
+    <section id="goals">
+        <h2>My Future Goals</h2>
+        <div class="card">
+            <p>Improve my coding skills.</p>
+            <p>Build more websites and applications.</p>
+            <p>Become a successful IT professional.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: sevdrian07@gmail.com</p>
+        <p><a href="https://www.facebook.com/">Facebook</a></p>
+        <p><a href="https://github.com/">GitHub</a></p>
+
+        <form onsubmit="alert('Thank you for your message!'); return false;">
+            <p><input type="text" placeholder="Your Name" required></p>
+            <p><input type="email" placeholder="Your Email" required></p>
+            <p><textarea placeholder="Your Message" required></textarea></p>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Sevillano. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function changeTheme() {
+            document.body.classList.toggle("dark");
+        }
+    </script>
+
+    <button onclick="goTop()">Back to Top ↑</button>
+    <script>
+function goTop() {
+    window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>
